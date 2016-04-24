@@ -107,22 +107,3 @@ void oneSensorCycle() { // Sensor ping cycle complete, do something with the res
   }
   Serial.println();
 }
-/*
-void playSound(int interval, int duration)
-{
-  unsigned int firstMillis = millis();
-  unsigned int currentMillis = millis();
-  do{
-    unsigned int previousMillis = 0;
-    currentMillis = millis();
-  
-    if(currentMillis-previousMillis >= interval)
-    {
-      previousMillis = currentMillis;
-  
-      buzzerState = !buzzerState;
-  
-      digitalWrite(buzzer, buzzerState);
-    }
-  }while (currentMillis - firstMillis < duration);
-}*/
