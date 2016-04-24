@@ -24,8 +24,6 @@ NewPing sonar[SONAR_NUM] = {     // Sensor object array.
   NewPing(trig[3], echo[3], maxDistance)
 };
 
-
-
 void setup() {
   Serial.begin(115200);
   pingTimer[0] = millis() + 75;           // First ping starts at 75ms, gives time for the Arduino to chill before starting.
@@ -62,15 +60,7 @@ void loop() {
   {
     Serial.println(analogRead(accelerometer[0]));
     Serial.println(analogRead(accelerometer[1]));
-    /*for(int i = 0; i < 4; i++)
-    {
-      digitalWrite(led[i], HIGH);
-    }
-    delay(1000);
-    for(int i = 0; i < 4; i++)
-    {
-      digitalWrite(led[i], LOW);
-    }*/
+
     for(int i = 0; i < 100; i++)
     {
       buzzerState = !buzzerState;
@@ -94,8 +84,6 @@ void oneSensorCycle() { // Sensor ping cycle complete, do something with the res
     Serial.print("cm\t");
     if(cm[i] < threshold && cm[i] != 0)
     {
-      //playSound((int)(cm[i]), 100);
-      //analogWrite(buzzer, 127);
       buzzerState = !buzzerState;
       digitalWrite(buzzer, buzzerState);
       digitalWrite(led[i], HIGH);
